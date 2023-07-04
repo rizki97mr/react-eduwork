@@ -5,7 +5,7 @@ export default class NavigationBar extends React.Component {
     
     render() {
         return (
-            
+            <div className="navigation">
                 <Navbar bg="dark" data-bs-theme="dark">
                     <Container>
                     <Navbar.Brand href="#home">M Rizki.</Navbar.Brand>
@@ -16,7 +16,7 @@ export default class NavigationBar extends React.Component {
                     </Nav>
                     </Container>
                 </Navbar>
-            
+            </div>
         )
     }
 }

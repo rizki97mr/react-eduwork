@@ -8,11 +8,12 @@
   position: sticky;
   top: 0;
   z-index: 1001;
-  color: aquamarine;
 }
 
 .jumbotron {
   height: 70%;
+  border-style: solid;
+  color: #F7F7F7;
   background: #616571;
   display: flex;
   justify-content: center;
@@ -39,7 +40,9 @@
 }
 
 .text {
+  border-style: solid;
   height: 30%;
+  color: #F7F7F7;
   background: #93DEFF;
   display: flex;
   justify-content: center;

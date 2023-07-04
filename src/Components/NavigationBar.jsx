@@ -12,7 +12,7 @@ export default class NavigationBar extends React.Component {
                     <Nav className="{menu ms-auto mb-2 mt-2}">
                         <Nav.Link href="#home">Home</Nav.Link>
                         <Nav.Link href="#display">About</Nav.Link>
-                        <Nav.Link href="#pricing">Contact</Nav.Link>
+                        <Nav.Link href="#conternt">Contact</Nav.Link>
                     </Nav>
                     </Container>
                 </Navbar>

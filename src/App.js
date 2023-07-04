@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="myBG">
       <NavigationBar />
-      <Display />
+      <Display job="FRONTEND DEVELOPER" code="MongoDB, Express, React JS, & Node JS"/>
       <Content name="M RIZKI"/>
     </div>
   );

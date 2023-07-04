@@ -1,16 +1,17 @@
 import { Button, Col, Container, Row } from 'react-bootstrap';
 
-const Display = () => {
+const Display = (props) => {
     return (
         <div className="jumbotron">
           <Container className='text-white'>
               <Row>
                 <Col id="#display">
                 <div className="banner text-center">
-                <h1 className="display-1">Raih Profesi idamannmu, kami bantu sampai diterima kerja</h1>
-                 <p className="lead mt-3">Tanpa biaya pendaftaran !</p>
-                    <Button variant="dark">
-                      Download
+                <h1 className="display-1">Hi, I'M M Rizki </h1>
+                <h1 className="display-3 mt-3"><b>{props.job}</b></h1>
+                <p>{props.code}</p>
+                    <Button variant="dark mt-3">
+                      Hire me
                     </Button>
                   </div>
                 </Col>

@@ -27,8 +27,9 @@
   margin-right: 30px;
 }
 
-.row .col p {
+p {
   color: black;
+  font-size: 25px;
 }
 
 .banner {

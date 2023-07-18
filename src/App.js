@@ -9,7 +9,7 @@ import axios from 'axios';
 
 function App() {
 
-  const [articles, setArticles] = useState(0)
+  const [articles, setArticles] = useState()
 
     useEffect(() => {
         retrieveArticles()
@@ -29,11 +29,11 @@ function App() {
     <div className="myBG">
       <NavigationBar />
       <Row>       
-            {articles.map((article, index) => { 
+            {articles && articles.map((article, index) => { 
             return <ContentNews key={index} {...article}/> 
             } 
             )}
-    </Row>
+      </Row>
     </div>
   );
 }

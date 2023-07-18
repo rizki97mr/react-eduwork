@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import NavigationBar from './Hook/Components/NavigaationBar';
-import { Form, InputGroup, Row } from 'react-bootstrap';
+import { Button, Form, InputGroup, Row } from 'react-bootstrap';
 import ContentNews from './Hook/Components/ContentNews';
 import axios from 'axios';
 
@@ -10,6 +10,8 @@ import axios from 'axios';
 function App() {
 
   const [articles, setArticles] = useState()
+  const [search, setSearch] = useState()
+  const [dataSearch, setDataSearch] = useState()
 
     useEffect(() => {
         retrieveArticles()
@@ -25,19 +27,39 @@ function App() {
         }
     }
 
+    const handleChange = (e) => {
+      setSearch(e.target.value)
+    }
+
+    const handleSubmit = async (e) => {
+      try {
+        e.preventDefault()
+
+        const {data} = await axios.get(`https://newsapi.org/v2/top-headlines?apiKey=d0b913f93b5640f591eabce944043908&country=us&q=${search}`)
+        // console.log(data.articles, 'response handle submit')
+        setDataSearch(data.articles)
+      } catch (error) {
+        console.log(error, 'error handle submit')
+      }
+    }
+
   return (
     <div className="myBG">
       <NavigationBar />
         <div className="container-fluid"> 
-                      <Form>
-                          <InputGroup className="mb-3 mt-4">
+                      <Form onSubmit={handleSubmit}>
+                          <InputGroup onChange={handleChange} className="mb-3 mt-4">
                               <Form.Control
                               placeholder="Search News"
                               />
-                              <InputGroup.Text id="basic-addon2">Search</InputGroup.Text>
+                              <Button type="submit">Search</Button>
                           </InputGroup>
                       </Form>                 
-        <Row>       
+        <Row>   
+             {dataSearch && dataSearch.map((article, index) => { 
+              return <ContentNews key={index} {...article}/> 
+              } 
+              )}    
               {articles && articles.map((article, index) => { 
               return <ContentNews key={index} {...article}/> 
               } 

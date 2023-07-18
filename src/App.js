@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import NavigationBar from './Hook/Components/NavigaationBar';
-import { Row } from 'react-bootstrap';
+import { Form, InputGroup, Row } from 'react-bootstrap';
 import ContentNews from './Hook/Components/ContentNews';
 import axios from 'axios';
 
@@ -28,12 +28,22 @@ function App() {
   return (
     <div className="myBG">
       <NavigationBar />
-      <Row>       
-            {articles && articles.map((article, index) => { 
-            return <ContentNews key={index} {...article}/> 
-            } 
-            )}
-      </Row>
+        <div className="container-fluid"> 
+                      <Form>
+                          <InputGroup className="mb-3 mt-4">
+                              <Form.Control
+                              placeholder="Search News"
+                              />
+                              <InputGroup.Text id="basic-addon2">Search</InputGroup.Text>
+                          </InputGroup>
+                      </Form>                 
+        <Row>       
+              {articles && articles.map((article, index) => { 
+              return <ContentNews key={index} {...article}/> 
+              } 
+              )}
+        </Row>
+      </div>
     </div>
   );
 }
